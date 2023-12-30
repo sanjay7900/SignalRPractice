@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div>
+    <p id="num">
+
+    </p>
+    <button id="clickR">Click me</button>
+</div>
+
+
+   @* <script>
+        // Connect to the SignalR hub
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/hub")  // Adjust the URL based on your SignalR hub configuration
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        // Define a method to handle incoming messages from the server
+        connection.on("SendMessage", (message) => {
+            console.log(message);
+            //document.getElementById("num").innerText=message;
+            // Update your UI or do something with the incoming message
+        });
+
+        // Start the connection
+        connection.start()
+            .then(() => {
+                console.log("Connected to SignalR hub");
+            })
+            .catch((err) => {
+                console.error(err.toString());
+            });
+
+        // Send a message to the server
+        function sendMessage(message) {
+            connection.invoke("SendMessage", message)
+                .catch((err) => {
+                    console.error(err.toString());
+                });
+        }
+
+        // Example usage
+    document.getElementById("clickR").on("click",function(){
+        console.log("calling...")
+        sendMessage("Hello, SignalR!");
+    });
+    
+        sendMessage("Hello, SignalR!");
+  $(document).ready(function(){
+      $("#clickR").click(function(){
+          console.log("lll");
+      })
+
+  });
+            // Close the connection when needed
+            // connection.stop();
+    </script>
+*@
+<script src="~/js/sr.js">
+ 
+</script>
+
